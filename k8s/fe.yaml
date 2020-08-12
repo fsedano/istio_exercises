@@ -9,28 +9,79 @@ spec:
     - protocol: TCP
       port: 8000
       targetPort: 5000
-#  type: LoadBalancer
-#  loadBalancerIP: 192.168.20.142
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fe1
+  name: fe1-v1
   labels:
     app: fe1
+    version: v1
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: fe1
+      version: v1
   template:
     metadata:
       labels:
         app: fe1
+        version: v1
     spec:
       containers:
       - name: fe1
-        image: fsedano/python-srv1:11
+        image: fsedano/python-srv1:20
         ports:
         - containerPort: 5000
-    
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fe1-v0
+  labels:
+    app: fe1
+    version: v0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fe1
+      version: v0
+  template:
+    metadata:
+      labels:
+        app: fe1
+        version: v0
+    spec:
+      containers:
+      - name: fe1
+        image: fsedano/python-srv1:21
+        ports:
+        - containerPort: 5000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fe1-v2
+  labels:
+    app: fe1
+    version: v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fe1
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: fe1
+        version: v2
+    spec:
+      containers:
+      - name: fe1
+        image: fsedano/python-srv1:3
+        ports:
+        - containerPort: 5000
+  

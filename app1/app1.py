@@ -2,9 +2,10 @@ import time
 import logging
 import socket
 
-from flask import Flask
-from flask import jsonify
+from flask import Flask, request, jsonify
+
 import requests
+logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
 
 @app.route('/healthz')
@@ -19,10 +20,13 @@ def root():
 
 @app.route('/data')
 def data():
+    logging.info(request.headers)
     try:
         r = requests.get('http://backend/data')
         r.raise_for_status()
-        return jsonify(r.json())
+        ret = dict(r.json())
+        ret['v'] = 21
+        return jsonify(ret)
     except requests.exceptions.HTTPError as err:
         return {'status':'fail2'}, 500
     except requests.exceptions.ConnectionError as e:

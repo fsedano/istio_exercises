@@ -17,19 +17,22 @@ metadata:
   name: backend
   labels:
     app: backend
+    version: v0
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
       app: backend
+      version: v0
   template:
     metadata:
       labels:
         app: backend
+        version: v0
     spec:
       containers:
       - name: backend
-        image: fsedano/python-backend:9
+        image: fsedano/python-backend:21
         ports:
         - containerPort: 5000
     

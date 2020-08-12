@@ -23,13 +23,13 @@ def root():
 def data():
     x = random.randint(0,10)
     logging.info(request.headers)
-    if x < 5:
-        time.sleep(x)
-    if x < 2:
-        logging.error("FAILING!!!!")
-        return {'error':'fail'},500
-    else:
-        return {'data':socket.gethostname(), 'delay':x}
+    #if x < 5:
+    #    time.sleep(x)
+    #if x < 2:
+    #    logging.error("FAILING!!!!")
+    #    return {'error':'fail'},500
+    #else:
+    return {'data':socket.gethostname(),'delay':x}
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000, host="0.0.0.0")

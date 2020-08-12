@@ -8,15 +8,20 @@ spec:
   gateways:
   - httpbin-gateway
   http:
-  - match:
-    - uri:
-        prefix: /status
-    - uri:
-        prefix: /delay
-    - uri:
-        prefix: /data
-    route:
+  - route:
     - destination:
-        port:
-          number: 8000
         host: fe1
+        subset: v1
+      headers:
+        request:
+          set:
+            x-user-fran: "v1"
+      weight: 30
+    - destination:
+        host: fe1
+        subset: v0
+      weight: 30
+    - destination:
+        host: fe1
+        subset: v2
+      weight: 40
