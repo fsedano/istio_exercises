@@ -1,0 +1,7 @@
+name: fe1
+image: fsedano/python-srv1
+command:
+- bash
+workdir: /okteto
+forward:
+- 8080:80
