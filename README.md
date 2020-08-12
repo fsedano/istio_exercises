@@ -6,3 +6,5 @@ The files here are used to practice istio service meshes:
 * Destination rules
 * HTTP header matching
 * HTTP header injection
+
+![Screenshot](screenshot.png)
