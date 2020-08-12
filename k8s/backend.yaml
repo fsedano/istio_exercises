@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: fsedano/python-backend:2
+        image: fsedano/python-backend:9
         ports:
         - containerPort: 5000
     

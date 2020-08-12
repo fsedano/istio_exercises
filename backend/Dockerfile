@@ -1,3 +1,4 @@
+#docker build -t fsedano/python-backend:3 .
 FROM ubuntu:18.04
 RUN apt-get update &&  apt-get install -y python3-pip
 RUN apt-get install -y curl inetutils-ping net-tools
