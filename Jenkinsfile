@@ -8,8 +8,19 @@ pipeline {
     }
 
     stage('st2') {
-      steps {
-        echo 'HECHO!'
+      parallel {
+        stage('st2') {
+          steps {
+            echo 'HECHO!'
+          }
+        }
+
+        stage('') {
+          steps {
+            sh 'exit 1'
+          }
+        }
+
       }
     }
 
