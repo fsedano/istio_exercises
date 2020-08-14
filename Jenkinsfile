@@ -23,6 +23,28 @@ pipeline {
           }
         }
 
+        stage('st1a') {
+          steps {
+            sh 'sleep 30'
+          }
+        }
+        stage('st1b') {
+          steps {
+            sh 'sleep 40'
+          }
+        }
+
+        stage('st1c') {
+          steps {
+            sh 'sleep 20'
+          }
+        }
+        stage('st1d') {
+          steps {
+            sh 'sleep 60'
+          }
+        }
+
         stage('noerror2') {
           steps {
             sh 'exit 0'
