@@ -25,7 +25,7 @@ pipeline {
 
         stage('noerror2') {
           steps {
-            sh 'exit 0'
+            sh 'exit 1'
           }
         }
 
