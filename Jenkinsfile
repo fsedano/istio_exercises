@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('st1') {
       steps {
-        timestamps()
         sh 'echo HOLA'
       }
     }
