@@ -39,6 +39,11 @@ pipeline {
             sh 'sleep 20'
           }
         }
+        stage('st1d') {
+          steps {
+            sh 'sleep 60'
+          }
+        }
 
         stage('noerror2') {
           steps {
