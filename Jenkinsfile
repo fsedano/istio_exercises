@@ -21,6 +21,12 @@ pipeline {
           }
         }
 
+        stage('noerror2') {
+          steps {
+            sh 'exit 0'
+          }
+        }
+
       }
     }
 
